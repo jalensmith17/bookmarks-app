@@ -1,4 +1,4 @@
-/* :root{
+:root{
     --offwhite: #fdfcf1;
     --text-light: #968c84;
     --text-dark: #615954;
@@ -16,4 +16,4 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-} */
+}
