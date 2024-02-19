@@ -1,3 +1,4 @@
+require('dotenv').config()
 const Bookmark = require('../../models/bookmark')
 
 //delete bookmark
@@ -28,13 +29,19 @@ const createBookmark = async (req, res, next) => {
     try {
         const createdBookmark = await Bookmark.create(req.body)
         res.locals.data.bookmark = createdBookmark
+        next()
     } catch (error) {
         res.status(400).json({ msg: error.message })
     }
 }
 
+const respondWithBookmark = (req, res) => {
+    res.json(res.locals.data.bookmark)
+}
+
 module.exports = {
     destroyBookmark,
     updateBookmark,
-    createBookmark
+    createBookmark,
+    respondWithBookmark
 }
